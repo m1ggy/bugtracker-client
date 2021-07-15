@@ -1,41 +1,54 @@
-import React, { useState, useRef } from 'react';
-import { Field, ButtonPrimary, InputGroupPrimary } from '@components/index';
-import { CardPrimary } from '@components/index';
+import React, { useState } from 'react';
+import '@shared/style.css';
+import {
+  CardPrimary,
+  Field,
+  ButtonPrimary,
+  InputGroupPrimary,
+} from '@components/index';
 import { Form } from 'react-bootstrap';
-import './style.css';
 import { Link } from 'react-router-dom';
-
-function Landing() {
-  const [user, setUser] = useState('');
-  const [password, setPassword] = useState('');
+function SignUp() {
   const [seePass, setSeePass] = useState(false);
+  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
   return (
     <div className='wrapper'>
       <CardPrimary
-        title={<h1>BugTracker</h1>}
-        className='login'
+        className='card'
+        title='Create an Account'
         footer={
           <p>
-            Need an Account?<Link to='/signup'> Sign up.</Link>
+            Already have an account? <Link to='/'>Login.</Link>
           </p>
         }
       >
-        <Form onSubmit={handleSubmit}>
+        <Form>
           <Field
-            type='text'
-            label='Username or Email'
-            value={user}
-            onChange={(e) => {
-              setUser(e.target.value);
-            }}
+            label='Email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <Field
+            label='First Name'
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+          <Field
+            label='Last Name'
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
           />
           <Form.Group>
             <Form.Label>Password</Form.Label>
             <InputGroupPrimary
+              required
               type={seePass ? 'text' : 'password'}
               label='Password'
               value={password}
@@ -63,12 +76,11 @@ function Landing() {
               }
             />
           </Form.Group>
-
-          <ButtonPrimary type='submit'>Login</ButtonPrimary>
+          <ButtonPrimary type='submit'>Submit</ButtonPrimary>
         </Form>
       </CardPrimary>
     </div>
   );
 }
 
-export default Landing;
+export default SignUp;

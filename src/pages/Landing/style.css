@@ -1,0 +1,15 @@
+.login {
+  min-width: 400px;
+  text-align: center;
+  width: 500px;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.centered {
+  display: flex;
+  flex-direction: row;
+}
