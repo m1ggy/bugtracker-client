@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Field, ButtonPrimary, InputGroupPrimary } from '@components/index';
 import { CardPrimary } from '@components/index';
 import { Form } from 'react-bootstrap';
